@@ -46,7 +46,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         FIRAuth.auth()?.signIn(withEmail: emailText, password: passwordText, completion: { (user, error) in
             if let error = error {
                 print(error)
-                let alert = UIAlertController(title: "Invalid username or password", message: "Please try again", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Invalid username or password", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {

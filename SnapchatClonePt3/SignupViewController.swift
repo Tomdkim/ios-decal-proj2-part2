@@ -43,7 +43,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
                 print(error)
-                let alert = UIAlertController(title: "Invalid ID or Password", message: "Please try again", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Invalid ID or Password", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
